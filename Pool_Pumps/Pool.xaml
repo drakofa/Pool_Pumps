@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Pool_Pumps.Pool"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pool_Pumps"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid Width="200" Height="400">
+            <!-- Прогресс-бар, повернутый на 90 градусов, с более точными размерами и выравниванием -->
+            <ProgressBar x:Name="Water" Height="200" VerticalAlignment="Bottom" Foreground="#FF11A9A7" Minimum="0" Maximum="100" Margin="0,0,-200,-200" Width="400">
+                <ProgressBar.RenderTransform>
+                    <RotateTransform Angle="-90" />
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+        </Grid>
+    </Grid>
+</UserControl>
