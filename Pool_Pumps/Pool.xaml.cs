@@ -12,25 +12,35 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Pool_Pumps
 {
     /// <summary>
     /// Логика взаимодействия для Pool.xaml
     /// </summary>
-    public partial class Pool : UserControl
+    public partial class Pool : UserControl ,INotifyPropertyChanged
     {
-        private double MaxWaterLevel = 200; // максимальная высота
+        private double MaxWaterLevel = 2000; // максимальная высота
         private double waterLevel = 0; //уровеь вады
+        public event PropertyChangedEventHandler PropertyChanged;
+        public MainWindow mainwindow;
 
-
+        /// <summary>
+        /// пустой констурктор
+        /// </summary>
         public Pool()
         {
             InitializeComponent();
         }
-
+        //public Pool(MainWindow mainWindow)
+        //{
+        //    InitializeComponent();
+        //    mainwindow = mainWindow;
+        //}
+        public MainWindow MainWindow { get; set; }
         public static readonly DependencyProperty WaterLevelProperty =
-     DependencyProperty.Register(
+        DependencyProperty.Register(
          "WaterLevel",
          typeof(double),
          typeof(Pool),
@@ -44,7 +54,32 @@ namespace Pool_Pumps
         public double WaterLevel
         {
             get { return (double)GetValue(WaterLevelProperty); }
-            set { SetValue(WaterLevelProperty, value); }
+            set { SetValue(WaterLevelProperty, value);
+                OnPropertyChanged(nameof(WaterLevel));
+                CheckPumpsActivation(); // Вызываем проверку после изменения уровня воды
+            }
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Включает насосы, если уровень воды достигает 75%
+        /// </summary>
+        private void CheckPumpsActivation()
+        {
+            if (WaterLevel >= 75)
+            {
+                // Активируем насосы, если уровень воды достигает 75%
+                mainwindow.RadioButton_activetion();
+            }
+            else if (WaterLevel == 0)
+            {
+                // Деактивируем насосы, если уровень воды равен 0
+                mainwindow.RadioButton_disactivetion();
+            }
         }
 
         /// <summary>
@@ -53,6 +88,7 @@ namespace Pool_Pumps
         private void UpdateProgressBar()
         {
             Water.Value = WaterLevel; // Обновляем значение ProgressBar
+            mainwindow.updateLableWather();
         }
 
 

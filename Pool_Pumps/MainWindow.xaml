@@ -5,16 +5,143 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pool_Pumps"
         mc:Ignorable="d"
+        
         Title="MainWindow" Height="900" Width="1600">
     <Grid Margin="0,-2,-0.4,2.4">
         <local:Pool x:Name="poolControl" HorizontalAlignment="Left" Height="401" Margin="1225,348,0,0" VerticalAlignment="Top" Width="200" Loaded="poolControl_Loaded"/>
-        <Button Click="AddWater_Click" Content="Button" HorizontalAlignment="Left" Margin="103,244,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Click="RemoveWater_Click" Content="Button" HorizontalAlignment="Left" Margin="103,316,0,0" VerticalAlignment="Top" Width="75"/>
         <Slider x:Name="waterSlider" HorizontalAlignment="Left" Margin="1206,78,0,0" VerticalAlignment="Top" Height="72" Width="219" ValueChanged="Slider_ValueChanged"/>
         <Image HorizontalAlignment="Left" Height="231" Margin="1206,112,0,0" VerticalAlignment="Top" Width="246" Source="IMG/kran.jpg">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="IMG/kran.jpg"/>
             </Image.OpacityMask>
         </Image>
+        <Image HorizontalAlignment="Left" Height="202" Margin="57,404,0,0" VerticalAlignment="Top" Width="207" Source="IMG/Nasos-dlya-vodyi-dlya-dachi-109-2443875026.jpg"/>
+        <Image HorizontalAlignment="Left" Height="202" Margin="269,404,0,0" VerticalAlignment="Top" Width="207" Source="IMG/Nasos-dlya-vodyi-dlya-dachi-109-2443875026.jpg"/>
+        <Image HorizontalAlignment="Left" Height="202" Margin="481,404,0,0" VerticalAlignment="Top" Width="207" Source="IMG/Nasos-dlya-vodyi-dlya-dachi-109-2443875026.jpg"/>
+        <Image HorizontalAlignment="Left" Height="202" Margin="688,404,0,0" VerticalAlignment="Top" Width="207" Source="IMG/Nasos-dlya-vodyi-dlya-dachi-109-2443875026.jpg"/>
+        <Image HorizontalAlignment="Left" Height="202" Margin="895,404,0,0" VerticalAlignment="Top" Width="207" Source="IMG/Nasos-dlya-vodyi-dlya-dachi-109-2443875026.jpg"/>
+        <CheckBox x:Name="Pump1" 
+          Content="Статус" 
+          HorizontalAlignment="Left" 
+          Margin="103,638,0,0" 
+          VerticalAlignment="Top" 
+          Height="77" 
+          Width="148" 
+          Checked="CheckBox_Checked" 
+          Unchecked="CheckBox_UnChecked">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+
+        <CheckBox x:Name="Pump2" 
+          Content="Статус" 
+          HorizontalAlignment="Left" 
+          Margin="309,638,0,0" 
+          VerticalAlignment="Top" 
+          Height="77" 
+          Width="148" 
+          Checked="CheckBox_Checked" 
+          Unchecked="CheckBox_UnChecked">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+
+        <CheckBox x:Name="Pump3" 
+          Content="Статус" 
+          HorizontalAlignment="Left" 
+          Margin="522,638,0,0" 
+          VerticalAlignment="Top" 
+          Height="77" 
+          Width="148" 
+          Checked="CheckBox_Checked" 
+          Unchecked="CheckBox_UnChecked">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+
+        <CheckBox x:Name="Pump4" 
+          Content="Статус" 
+          HorizontalAlignment="Left" 
+          Margin="728,638,0,0" 
+          VerticalAlignment="Top" 
+          Height="77" 
+          Width="148" 
+          Checked="CheckBox_Checked" 
+          Unchecked="CheckBox_UnChecked">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+
+        <CheckBox x:Name="Pump5" 
+          Content="Статус" 
+          HorizontalAlignment="Left" 
+          Margin="954,638,0,0" 
+          VerticalAlignment="Top" 
+          Height="77" 
+          Width="148" 
+          Checked="CheckBox_Checked" 
+          Unchecked="CheckBox_UnChecked">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Red" />
+                            <Setter Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+
+        <Slider x:Name="timeSlider" HorizontalAlignment="Left" Margin="391,202,0,0" VerticalAlignment="Top" Height="72" Width="400"  Minimum="1" SmallChange="1" Maximum="3"/>
+        <Label Content="Управление временем" HorizontalAlignment="Left" Margin="391,146,0,0" VerticalAlignment="Top" Height="47" Width="400" FontSize="24" FontFamily="Roboto Black"/>
+        <Label x:Name="watherlable" Content="0" HorizontalAlignment="Left" Margin="1271,775,0,0" VerticalAlignment="Top" Height="43" Width="104"/>
+        <Button Content="выкл/вкл насос No1" Tag="Pump1" HorizontalAlignment="Left" Margin="57,720,0,0" VerticalAlignment="Top" Width="194" Click="Button_Click" Height="53"/>
+        <Button Content="выкл/вкл насос No2" Tag="Pump2" HorizontalAlignment="Left" Margin="269,720,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click" Height="48"/>
+        <Button Content="выкл/вкл насос No3" Tag="Pump3" HorizontalAlignment="Left" Margin="522,720,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click" Height="48"/>
+        <Button Content="выкл/вкл насос No4" Tag="Pump4" HorizontalAlignment="Left" Margin="728,720,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click" Height="53"/>
+        <Button Content="выкл/вкл насос No5" Tag="Pump5" HorizontalAlignment="Left" Margin="929,720,0,0" VerticalAlignment="Top" Width="173" Click="Button_Click" Height="48"/>
     </Grid>
 </Window>

@@ -4,17 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.ComponentModel;
 namespace Pool_Pumps
-{
-    class Tap
-    {
-        public event Action<int> WaterFlowed; // обьявляем событие , уведомляем о палаче воды 
 
+{
+    class Tap : Time, INotifyPropertyChanged
+    {
+        public event Action<int> WaterFlowed;
+        private Time time;
         private int tapSpeed;
+        
         private bool isRunning;     // Флаг состояния
         private Thread tapThread;
         private Pool poolControl;   // Ссылка на объект Pool для добавления воды
-
+        private MainWindow mainwindow;
         /// <summary>
         /// Свойство для управления скоростью
         /// </summary>
@@ -24,11 +27,29 @@ namespace Pool_Pumps
             set => tapSpeed = value;
         }
 
+       
+        
         public Tap(Pool pool)
         {
             isRunning = false;
             tapSpeed = 0;
             poolControl = pool; // Инициализация объекта Pool
+        }
+        public Tap(Pool pool, MainWindow mainWindow)
+        {
+            isRunning = false;
+            tapSpeed = 0;
+            poolControl = pool; // Инициализация объекта Pool
+            mainwindow = mainWindow;
+        }
+
+        public Tap(Pool pool, MainWindow mainWindow, Time globalTime)
+        {
+            isRunning = false;
+            tapSpeed = 0;
+            poolControl = pool; // Инициализация объекта Pool
+            mainwindow = mainWindow;
+            time = globalTime; // Ссылка на общий объект Time
         }
 
 
@@ -56,10 +77,16 @@ namespace Pool_Pumps
             {
                 poolControl.Dispatcher.Invoke(() =>
                 {
-                    poolControl.AddWater(tapSpeed * 0.1);
+                    poolControl.AddWater(tapSpeed * time.TimeSpeed);
+                    
                 });
-                Thread.Sleep(100);
+                Thread.Sleep(600);
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
